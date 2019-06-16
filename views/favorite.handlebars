@@ -1,0 +1,49 @@
+<div class="container">
+    <div class="jumbotron Menu">
+        <h1 class="display-4">Your Favorite Articles</h1>
+        <hr class="my-4">
+        <p>You can clear all favorites.</p>
+        <button type="button" class="btn btn-primary" id="goBack">Go Back</button>
+        <button type="button" class="btn btn-primary" id="clearFavorite">Clear All</button>
+    </div>
+
+    {{#each returnedArray}}
+    <div class="card article mb-3">
+        <div class="card-body">
+            <h5 class="card-title">{{title}}</h5>
+            <a href={{link}}>GO TO LINK</a>
+            <br>
+            <button type="button" class="mt-3 btn btn-outline-secondary deleteFavorite" data-id={{_id}}
+                favorite={{favorite}}>Undo Favorite</button>
+            <button type="button" class="mt-3 btn btn btn-outline-secondary noteButton" data-id={{_id}}>Add
+                Note</button>
+            {{#if note.body}}
+                <footer class="blockquote-footer mt-3">{{note.body}}
+                    <a href="#" id="deleteNote" data-id={{note._id}}>&times;</a>
+                </footer>
+            {{/if}}
+        </div>
+    </div>
+    {{/each}}
+</div>
+
+
+{{!-- <div class="container">
+
+    <div class="Menu">
+        <h1>News Scrape</h1>
+        <button id="goBack">Go Back</button>
+        <button id="clearFavorite">Clear All</button>
+    </div>
+
+    {{#each returnedArray}}
+    {{#if favorite}}
+    <div class="article">
+        <h1>{{title}}</h1>
+        <a href={{link}}>go to link</a>
+        <button class="deleteFavorite" data-id={{_id}} favorite={{favorite}}>delete</button>
+        <button class="noteButton" data-id={{_id}}>Add Note</button>
+    </div>
+    {{/if}}
+    {{/each}}
+</div> --}}

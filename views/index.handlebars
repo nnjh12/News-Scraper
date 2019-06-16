@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="jumbotron Menu">
+        <h1 class="display-4">News Scrape</h1>
+        <p class="lead">You can scrape articles from NPR. Click 'Scrape' button.</p>
+        <hr class="my-4">
+        <p>You can clear all, or see your favorites.</p>
+        <button type="button" class="btn btn-primary" id="scrape">Scrape</button>
+        <button type="button" class="btn btn-primary" id="clearAll">Clear All</button>
+        <button type="button" class="btn btn-primary" id="favorite">See Favorites</button>
+
+    </div>
+
+    {{#each returnedArray}}
+    <div class="card article mb-3">
+        <div class="card-body">
+            <h5 class="card-title">{{title}}</h5>
+            <a href={{link}}>GO TO LINK</a>
+            <br>
+            {{#if favorite}}
+            <button type="button" class="mt-3 btn btn-outline-secondary addFavorite" data-id={{_id}}
+                favorite={{favorite}}>Undo Favorite</button>
+            <button type="button" class="mt-3 btn btn btn-outline-secondary noteButton" data-id={{_id}}>Add
+                Note</button>
+            {{/if}}
+            {{#unless favorite}}
+            <button type="button" class="mt-3 btn btn-outline-secondary addFavorite" data-id={{_id}}
+                favorite={{favorite}}>Add to Favorite</button>
+            <button type="button" class="mt-3 btn btn btn-outline-secondary noteButton" data-id={{_id}}>Add
+                Note</button>
+            {{/unless}}
+
+            {{#if note.body}}
+            <footer class="blockquote-footer mt-3">{{note.body}}
+                <a href="#" id="deleteNote" data-id={{note._id}}>&times;</a>
+            </footer>
+            {{/if}}
+        </div>
+    </div>
+    {{/each}}
+</div>

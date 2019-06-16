@@ -1,0 +1,11 @@
+<div class="container">
+    {{#each returnedArray}}
+    <h4 class="my-2">{{title}}</h4>
+    {{!-- <a href={{link}}>go to link</a> --}}
+    <div class="form-group">
+        <textarea class="form-control" id="noteContent" rows="3" placeholder="Comments Here"></textarea>
+    </div>
+    <button onclick="JavaScript:window.close()">close</button>
+    <button class="saveNote" data-id={{_id}}>save</button>
+    {{/each}}
+</div>
