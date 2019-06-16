@@ -81,6 +81,8 @@ app.get("/scrape", function (req, res) {
                 // Add the text and href of every link, and save them as properties of the result object
                 result.title = $(this).children("a").children("h3").text();
                 result.link = $(this).children("a").attr("href");
+                result.summary = $(this).children("a").children("p").text();
+
 
                 console.log(result)
 
