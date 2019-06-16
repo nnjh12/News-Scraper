@@ -29,6 +29,10 @@ app.use(express.static("public"));
 // Connect to the Mongo DB
 mongoose.connect("mongodb://localhost/newsScraper", { useNewUrlParser: true });
 
+// MangoLab
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+mongoose.connect(MONGODB_URI);
+
 // handlebars
 var exphbs = require("express-handlebars");
 
