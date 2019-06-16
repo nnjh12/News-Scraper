@@ -30,7 +30,7 @@ app.use(express.static("public"));
 // mongoose.connect("mongodb://localhost/newsScraper", { useNewUrlParser: true });
 
 // MangoLab
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/newsScraper";
 mongoose.connect(MONGODB_URI);
 
 // handlebars
